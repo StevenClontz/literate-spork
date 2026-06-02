@@ -9,9 +9,6 @@
   Raw Link: https://raw.githubusercontent.com/DoctorHaitch/doenet-math-problems/main/M122-Calculus-2/E01-C10-05-OneIntegral.oml
 -->
 
-<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     %%%%%%%%%%% Common Variables
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <setup>
   <number name="a">-3</number>
   <number name="b">5</number>
