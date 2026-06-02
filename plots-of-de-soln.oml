@@ -1,0 +1,50 @@
+<!--
+  Author: Kris Hollingsworth
+  Class: Math122-Calculus 2
+  Date: 5/22/26
+  File: E01-C10-05-OneIntegral.oml
+  Description:
+    Visual of Area Between Curves with both horizontal and vertical
+    representative slices.
+  Raw Link: https://raw.githubusercontent.com/DoctorHaitch/doenet-math-problems/main/M122-Calculus-2/E01-C10-05-OneIntegral.oml
+-->
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     %%%%%%%%%%% Common Variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<setup>
+  <number name="a">-3</number>
+  <number name="b">5</number>
+  <number name="MutedGreen">117733</number>
+  <styleDefinition name="MGreenStyle" styleNumber="10" lineWidth="3" lineStyle="solid" lineColor="#$MutedGreen"  fillColor="#$MutedGreen" />
+  <number name="MutedIndigo">332288</number>
+  <function name="f" styleNumber="10" domain="[$a-1,$b+1]">x-1</function>
+  <function name="g" styleNumber="9" domain="[$a,$b+1]">sqrt(2x+6)</function>
+  <function name="h" styleNumber="9" domain="[$a,$b]">-sqrt(2x+6)</function>
+  <function styleNumber="10" name="z" domain="[$a,$b]">0</function>
+  <function name="p" variable="y">(y^2-6)/2</function>
+  <function name="q" variable="y">y+1</function>
+</setup>
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     %%%%%%%%%%%%%%%%% Draw a Graph
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<graph fixAxes width="80%" showBorder="false" aspectRatio="1.75" grid="true" xmin="$a-1" xmax="$b+1" displayXAxisTickLabels="false" ymin="-3" ymax="5" showNavigation="false" decorative>
+  <shortDescription>The graphs of y^2=2x+6 and y=x-1 from x=-3 to x=5 and y=-2 to y=4, showing their intersections and allowing a representative horizontal slice to be drawn and moved vertically.</shortDescription>
+  <lineSegment styleNumber="9" fixLocation endpoints="($a,$$g($a)) ($a,0)" />  
+  <lineSegment styleNumber="9" fixLocation endpoints="(7,$$g(7)) (7,0)" labelIsName />
+  $f $g $h
+  <number hide name="leftEndPoint">$$p($yVal)</number>
+  <number hide name="rightEndPoint">$$q($yVal)</number>
+  <!--
+  <point hide name="botLeft">
+      ($leftEndPoint, $yVal)
+  </point>
+  <point hide name="topRight">
+    ($rightEndPoint, $yVal+.2)
+  </point>
+  -->
+  <rectangle hide="not($showSlice)" styleNumber="5" filled vertices="($leftEndPoint, $yVal) ($rightEndPoint, $yVal+.2)" />
+</graph>
+<boolean name="showSlice" hide>true</boolean>
+<slider initialValue="-0.8" name="yVal" from="-2" to="3.8" step="0.2" showTicks="false" showValue="false" hide="not($showSlice)" />
